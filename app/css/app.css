@@ -48,9 +48,9 @@ div {
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+
+  -webkit-transition: opacity 0.5s ease-in-out;
 }
-
-
 
 .card .back {
   background: blue;
@@ -59,7 +59,16 @@ div {
   -ms-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
+  opacity:0;
 }
+
+.card.flipped img{
+  opacity:0;
+}
+.card.flipped .back{
+  opacity:1;
+}
+
 
 .message {
   width: 660px;
