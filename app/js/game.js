@@ -27,11 +27,11 @@ function Game(tileNames) {
     tile.flip();
 
     if (!this.firstPick || this.secondPick) {
-
-      if (this.secondPick) {
+      if(this.secondPick) {
         this.firstPick.flip();
         this.secondPick.flip();
-        this.firstPick = this.secondPick = undefined;
+        this.firstPick = undefined;
+        this.secondPick = undefined;
       }
 
       this.firstPick = tile;

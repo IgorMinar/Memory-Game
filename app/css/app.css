@@ -37,6 +37,10 @@ div {
   -o-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
 }
+ 
+.card.flipped .back {
+  z-index: 100;
+}
 
 .card img {
   display: block;
