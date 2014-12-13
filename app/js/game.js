@@ -14,16 +14,15 @@ Tile.prototype.flip = function() {
 
 function Game(tileNames) {
   var tileDeck = makeDeck(tileNames);
-
   this.grid = makeGrid(tileDeck);
   this.message = Game.MESSAGE_CLICK;
   this.unmatchedPairs = tileNames.length;
+  this.totalClickAttempts = 0;
 
   this.flipTile = function(tile) {
     if (tile.flipped) {
       return;
     }
-
     tile.flip();
 
     if (!this.firstPick || this.secondPick) {
@@ -41,9 +40,11 @@ function Game(tileNames) {
 
       if (this.firstPick.title === tile.title) {
         this.unmatchedPairs--;
+		this.totalClickAttempts = this.totalClickAttempts + 1;
         this.message = (this.unmatchedPairs > 0) ? Game.MESSAGE_MATCH : Game.MESSAGE_WON;
         this.firstPick = this.secondPick = undefined;
       } else {
+		this.totalClickAttempts = this.totalClickAttempts + 1;
         this.secondPick = tile;
         this.message = Game.MESSAGE_MISS;
       }
